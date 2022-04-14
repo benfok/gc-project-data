@@ -3,12 +3,19 @@
     padding: 0;
 }
 
+header {
+    background-color: #E7E9EB;
+    padding: 1rem;
+    border-bottom: solid 2px lightblue;
+    margin-bottom: 1rem;
+}
+
 section {
     margin: 10px;
 }
 
 h2 {
-    margin-bottom: 1rem;
+    margin: 1rem 0;
 }
 
 form {
@@ -58,9 +65,13 @@ td, th {
     display: none;
 }
 
-.show-details-btn,
 #projectId,
-#submit {
+#submit  {
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.show-details-btn {
     padding: 5px;
     margin-bottom: 1rem;
     border-radius: 5px;
