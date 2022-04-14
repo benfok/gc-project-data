@@ -1,0 +1,98 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+section {
+    margin: 10px;
+}
+
+h2 {
+    margin-bottom: 1rem;
+}
+
+form {
+    margin: 10px;
+}
+
+.summary-container {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.chart-container {
+    flex: 1 0 100%;
+    position: relative;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+table {
+    border: solid 2px lightskyblue;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+}
+
+thead tr {
+    border-bottom: solid 2px lightgray;
+}
+
+.table-summary {
+    padding: 10px;
+    flex: 1 0 100%;
+    font-size: 85%;
+}
+
+td, th {
+    padding: 5px 5px;
+    text-align: left;
+}
+
+.table-details {
+    padding: 1rem;
+    width: 100%;
+    font-size: 85%;
+}
+
+.hidden {
+    display: none;
+}
+
+.show-details-btn,
+#projectId,
+#submit {
+    padding: 5px;
+    margin-bottom: 1rem;
+    border-radius: 5px;
+}
+
+button:hover,
+#submit:hover {
+    cursor: pointer;
+    background-color: blue;
+    color: white;
+    border-color: blue;
+}
+
+@media only screen and (min-width: 576px) {
+
+    section,
+    form {
+        margin: 1rem;
+    }
+
+}
+
+@media only screen and (min-width: 992px) {
+
+    .chart-container {
+        flex: 1 0 45%;
+        margin-left: 20px;
+        width: 50%;
+    }
+
+    .table-summary {
+        flex: 1 0 45%;
+    }
+
+}

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/tables.css">
+    <title>Document</title>
+</head>
+<body>
+    <header></header>
+    <form action="/api/project/">
+        <label for="projectId">Project ID:</label>
+        <input type="text" id="projectId" name="projectId" size="10">
+        <input type="submit" value="Run" id="submit">
+    </form>
+    <section id="resorts">
+        <!--  resort HTMl goes in here -->
+    </section>
+    <footer></footer>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
+    <script src="./scripts/charts.js"></script>
+    <script src="../data/resortData.js"></script>
+    <script src="./scripts/resortRender.js"></script>
+    <script src="./scripts/tables.js"></script>
+    <script src="./scripts/api.js"></script>
+</body>
+</html>
