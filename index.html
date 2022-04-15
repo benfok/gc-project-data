@@ -11,8 +11,9 @@
     <header>
         <form action="/api/project/">
             <label for="projectId">Project ID:</label>
-            <input type="text" id="projectId" name="projectId" size="10">
+            <input type="text" id="projectId" name="projectId" size="10" required>
             <input type="submit" value="Run" id="submit">
+            <p class="error" id="id-error" style="display: none;">❌ This Project ID is not yet setup with this tool.</p>
         </form>
     </header>
     <section id="resorts">

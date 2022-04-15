@@ -1,4 +1,4 @@
-const listData = async (resort, data) => {
+const listData = async (resort, data, statusObject) => {
     
     // console.log(data);
 
@@ -11,8 +11,7 @@ const listData = async (resort, data) => {
         
         let done = ['Done', 0, 0, 0, 0, 0];
         let inProgress = ['In Progress', 0, 0, 0, 0, 0];
-        let readyFMM = ['With FMM/RMT', 0, 0, 0, 0, 0];
-        let readyHosp = ['With Hosp', 0, 0, 0, 0, 0];
+        let notStarted = ['Not Started', 0, 0, 0, 0, 0];
         let other = ['Other', 0, 0, 0, 0, 0];
 
         // On Track, 2wks Out, 1wk Out, Overdue, Undefined
@@ -32,43 +31,27 @@ const listData = async (resort, data) => {
             // set the due date if it exists otherwise leave null
             data.data[i].next_due_at ? dueDate = data.data[i].next_due_at.slice(0, 10) : dueDate = null;
 
-            if (statusId === 2150650 || statusId === 2092607) {
-                readyFMM[1]++;
+            // Not Started items
+            if (statusObject[statusId].chartCat === 'notStarted') {
+                notStarted[1]++;
                 categorized = true;
                 if (dueDate) {
                     const timeLeft = new Date(dueDate).getTime() - new Date();
                     if (timeLeft < 0) {
-                        readyFMM[5]++;
+                        notStarted[5]++;
                         chartArray[3]++;
                     } else if (timeLeft <= oneWeek) {
-                            readyFMM[4]++;
+                            notStarted[4]++;
                             chartArray[2]++;
                         } else if (timeLeft <= twoWeeks) {
-                                readyFMM[3]++;
+                                notStarted[3]++;
                                 chartArray[1]++
-                            } else { readyFMM[2]++; chartArray[0]++;}
+                            } else { notStarted[2]++; chartArray[0]++;}
                 }
             };
 
-            if (statusId === 2092608) {
-                readyHosp[1]++;
-                categorized = true;
-                if (dueDate) {
-                    const timeLeft = new Date(dueDate).getTime() - new Date();
-                    if (timeLeft < 0) {
-                        readyHosp[5]++;
-                        chartArray[3]++;
-                        } else if (timeLeft <= oneWeek) {
-                            readyHosp[4]++;
-                            chartArray[2]++;
-                        } else if (timeLeft <= twoWeeks) {
-                                readyHosp[3]++;
-                                chartArray[1]++;
-                            } else { readyHosp[2]++; chartArray[0]++;}
-                }
-            };
-
-            if (statusId === 2164583) {
+            // In Progress items
+            if (statusObject[statusId].chartCat === 'inProgress') {
                 inProgress[1]++;
                 categorized = true;
                 if (dueDate) {
@@ -86,12 +69,14 @@ const listData = async (resort, data) => {
                 }
             };
 
-            if (statusId === 2092609) {
+            // Done items
+            if (statusObject[statusId].chartCat === 'done') {
                 done[1]++;
                 chartArray[0]++;
                 categorized = true;
             };
 
+            // Other items
             if (!categorized) { other[1]++; chartArray[4]++; };           
                 
             // Details Table
@@ -125,7 +110,7 @@ const listData = async (resort, data) => {
             await dataLoop(data);
             
             const statusArray = [];
-            statusArray.push(done, inProgress, readyFMM, readyHosp, other)
+            statusArray.push(done, inProgress, notStarted, other)
 
             // console.log(statusArray);
             // locate the table body element and clear it

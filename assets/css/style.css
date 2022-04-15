@@ -23,6 +23,11 @@ form {
     margin: 10px;
 }
 
+.error {
+    color: red;
+    padding: 10px 0;
+}
+
 .summary-container {
     display: flex;
     flex-flow: row wrap;
