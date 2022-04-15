@@ -9,9 +9,7 @@ const options = {
 
 // pulls back the resort folder list asscoiated with the provided project ID
 const getResortList = (id) => {
-    console.log(resortData)  
     for (i = 0; i < resortData.length; i++) {
-      console.log(resortData[i])
       if (resortData[i].projectId == id) {
         return resortData[i].resorts
       } 

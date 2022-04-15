@@ -15,7 +15,7 @@ const listData = async (resort, data, statusObject) => {
         let other = ['Other', 0, 0, 0, 0, 0];
 
         // On Track, 2wks Out, 1wk Out, Overdue, Undefined
-        let chartArray = [0, 0, 0, 0, 0]
+        let chartArray = [0, 0, 0, 0, 0, 0]
 
         const twoWeeks = 1000*60*60*24*14;
         const oneWeek = 1000*60*60*24*7;
@@ -39,14 +39,14 @@ const listData = async (resort, data, statusObject) => {
                     const timeLeft = new Date(dueDate).getTime() - new Date();
                     if (timeLeft < 0) {
                         notStarted[5]++;
-                        chartArray[3]++;
+                        chartArray[4]++;
                     } else if (timeLeft <= oneWeek) {
                             notStarted[4]++;
-                            chartArray[2]++;
+                            chartArray[3]++;
                         } else if (timeLeft <= twoWeeks) {
                                 notStarted[3]++;
-                                chartArray[1]++
-                            } else { notStarted[2]++; chartArray[0]++;}
+                                chartArray[2]++
+                            } else { notStarted[2]++; chartArray[1]++;}
                 }
             };
 
@@ -58,14 +58,14 @@ const listData = async (resort, data, statusObject) => {
                     const timeLeft = new Date(dueDate).getTime() - new Date();
                     if (timeLeft < 0) {
                         inProgress[5]++;
-                        chartArray[3]++;
+                        chartArray[4]++;
                     } else if (timeLeft <= oneWeek) {
                             inProgress[4]++;
-                            chartArray[2]++;
+                            chartArray[3]++;
                             } else if (timeLeft <= twoWeeks) {
                                 inProgress[3]++;
-                                chartArray[1]++;
-                            } else { inProgress[2]++; chartArray[0]++;}
+                                chartArray[2]++;
+                            } else { inProgress[2]++; chartArray[1]++;}
                 }
             };
 
@@ -77,7 +77,7 @@ const listData = async (resort, data, statusObject) => {
             };
 
             // Other items
-            if (!categorized) { other[1]++; chartArray[4]++; };           
+            if (!categorized) { other[1]++; chartArray[5]++; };           
                 
             // Details Table
             // create the table row
@@ -102,7 +102,7 @@ const listData = async (resort, data, statusObject) => {
             tableRow.insertAdjacentElement('beforeend', td3);
             tableRow.insertAdjacentElement('beforeend', td4);
 
-            console.log('chart', chartArray);
+            // console.log('chart', chartArray);
             }
         }
 

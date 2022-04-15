@@ -1,9 +1,9 @@
 
 const createChart = (resort, array) => {
-    console.log(array);
+    // console.log(array);
 
     const labels = [
-        'On Track', '2wks Out', '1wk Out', 'Overdue', 'Undefined'
+        'Complete', 'On Track', '2wks Out', '1wk Out', 'Overdue', 'Undefined'
         ];
         
         const data = {
@@ -12,6 +12,7 @@ const createChart = (resort, array) => {
             label: resort,
             data: array,
             backgroundColor: [
+                'rgb(158,226,250)',
                 'rgb(125,209,129)',
                 'rgb(246,232,142)',
                 'rgb(249,127,57)',
@@ -19,6 +20,7 @@ const createChart = (resort, array) => {
                 'rgb(219,217,210)'
             ],
             borderColor: [
+                'rgb(42,190,244)',
                 'rgb(75,127,82)',
                 'rgb(237,209,29)',
                 'rgb(241,115,0)',
