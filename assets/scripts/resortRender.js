@@ -16,8 +16,8 @@ const resortHtml = (resort) => {
                 <th>Status</th>
                 <th>Total</th>
                 <th>On Track</th>
-                <th>2wks Out</th>
-                <th>1wk Out</th>
+                <th>Due in 2wks</th>
+                <th>Due in 1wk</th>
                 <th>Overdue</th>
             </thead>
             <tbody id="${name}-summary">
