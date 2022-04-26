@@ -9,12 +9,13 @@ const listData = async (resort, data, statusObject) => {
 
         // console.log(tableBody);
         
+        // set empty arrays for tabulating status data
         let done = ['Done', 0, 0, 0, 0, 0];
         let inProgress = ['In Progress', 0, 0, 0, 0, 0];
         let notStarted = ['Not Started', 0, 0, 0, 0, 0];
         let other = ['Other', 0, 0, 0, 0, 0];
 
-        // On Track, 2wks Out, 1wk Out, Overdue, Undefined
+        // labels are: On Track, 2wks Out, 1wk Out, Overdue, Undefined
         let chartArray = [0, 0, 0, 0, 0, 0]
 
         const twoWeeks = 1000*60*60*24*14;

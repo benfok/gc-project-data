@@ -3,7 +3,7 @@ const createChart = (resort, array) => {
     // console.log(array);
 
     const labels = [
-        'Complete', 'On Track', 'Due in 2wks', 'Due in 1wk', 'Overdue', 'Undefined'
+        'Complete', 'On Track', 'Due in 2wks', 'Due in 1wk', 'Overdue', 'Other'
         ];
         
         const data = {
